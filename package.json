@@ -1,0 +1,19 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "arithmetic.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "dayjs": "^1.10.7",
+    "decimal.js": "^10.3.1",
+    "moment": "^2.29.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

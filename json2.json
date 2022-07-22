@@ -1,0 +1,27 @@
+{
+  "tplId": "499679540054962269",
+  "tplName": "匹配模板",
+  "eventName": "2022年度总结会",
+  "department": "267516572963176501",
+  "relatePurchaseId": "267516570069106763",
+  "relatePurchase": "glcg3",
+  "meetingType": 8,
+  "cityCode": 110000,
+  "positionRequire": "朝阳公园",
+  "location": "{\"longitude\":116.489233,\"latitude\":39.949861,\"address\":\"朝阳公园\",\"distance\":\"1000\"}",
+  "distance": 2,
+  "date": ["2022-07-07", "2022-07-09"],
+  "siteType": 1,
+  "attendance": "10",
+  "attendanceId": "",
+  "budget": "",
+  "budgetAmount": 5000,
+  "userName": "建力",
+  "userMobile": "18219810101",
+
+  "matchType": 1,
+  "startTime": "2022-07-07",
+  "endTime": "2022-07-09",
+  "deptCode": "267516572963176501",
+  "eventDuration": 3
+}
