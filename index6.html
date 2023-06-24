@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"><!-- 通知 IE 采用其所支持的最新的模式 -->
+  <meta name="keywords" content="关键词" />
+  <meta name="description" content="描述" />
+  <title>Document</title>
+</head>
+<style>
+  .box {
+    background: skyblue;
+    display: flex;
+  }
+
+  .child {
+    height: 20px;
+    width: 20px;
+    background: red;
+    float: left;
+  }
+</style>
+
+<body>
+  <ul class="sidebar-sub-headers">
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-实现防抖函数-debounce" class="active sidebar-link"
+        aria-current="page">1 实现防抖函数（debounce）</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-实现节流函数-throttle" class="sidebar-link">2
+        实现节流函数（throttle）</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_3-实现instanceof" class="sidebar-link">3
+        实现instanceOf</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_4-实现new的过程" class="sidebar-link">4 实现new的过程</a>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_5-实现call方法" class="sidebar-link">5 实现call方法</a>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_6-实现apply方法" class="sidebar-link">6
+        实现apply方法</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_7-实现bind方法" class="sidebar-link">7 实现bind方法</a>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_8-实现深拷贝" class="sidebar-link">8 实现深拷贝</a>
+      <ul class="sidebar-sub-headers">
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-简洁版本" class="sidebar-link">1 简洁版本</a>
+        </li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-实现完整的深拷贝" class="sidebar-link">2
+            实现完整的深拷贝</a></li>
+      </ul>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_9-实现类的继承" class="sidebar-link">9 实现类的继承</a>
+      <ul class="sidebar-sub-headers">
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-实现类的继承-简版" class="sidebar-link">1
+            实现类的继承-简版</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-es5实现继承-详细" class="sidebar-link">2
+            ES5实现继承-详细</a></li>
+      </ul>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_10-实现promise相关方法" class="sidebar-link">10
+        实现Promise相关方法</a>
+      <ul class="sidebar-sub-headers">
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-实现promise的resolve" class="sidebar-link">1
+            实现Promise的resolve</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-实现-promise-reject" class="sidebar-link">2
+            实现 Promise.reject</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_3-实现-promise-prototype-finally"
+            class="sidebar-link">3 实现 Promise.prototype.finally</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_4-实现-promise-all" class="sidebar-link">4 实现
+            Promise.all</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_5-实现promise-allsettle"
+            class="sidebar-link">5 实现promise.allsettle</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_6-实现-promise-race" class="sidebar-link">6
+            实现 Promise.race</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_7-实现一个简版promise" class="sidebar-link">7
+            实现一个简版Promise</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_8-promise-实现-详细" class="sidebar-link">8
+            Promise 实现-详细</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_9-实现promisify" class="sidebar-link">9
+            实现Promisify</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_10-完整实现promises-a-规范"
+            class="sidebar-link">10 完整实现Promises/A+规范</a></li>
+      </ul>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_11-实现发布订阅模式" class="sidebar-link">11
+        实现发布订阅模式</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_12-实现观察者模式" class="sidebar-link">12 实现观察者模式</a>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_13-实现单例模式" class="sidebar-link">13 实现单例模式</a>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_14-实现ajax" class="sidebar-link">14 实现Ajax</a>
+      <ul class="sidebar-sub-headers">
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-原生实现" class="sidebar-link">1 原生实现</a>
+        </li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-promise实现" class="sidebar-link">2
+            Promise实现</a></li>
+      </ul>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_15-实现jsonp方法" class="sidebar-link">15
+        实现JSONP方法</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_16-实现async-await" class="sidebar-link">16
+        实现async/await</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_17-基于generator函数实现async-await原理"
+        class="sidebar-link">17 基于Generator函数实现async/await原理</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_18-实现es6的const" class="sidebar-link">18
+        实现ES6的const</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_19-实现一个迭代器生成函数" class="sidebar-link">19
+        实现一个迭代器生成函数</a>
+      <ul class="sidebar-sub-headers">
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-es6对迭代器的实现" class="sidebar-link">1
+            ES6对迭代器的实现</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-实现迭代器生成函数" class="sidebar-link">2
+            实现迭代器生成函数</a></li>
+      </ul>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_20-实现es6的extends" class="sidebar-link">20
+        实现ES6的extends</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_21-实现object-create" class="sidebar-link">21
+        实现Object.create</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_22-实现object-freeze" class="sidebar-link">22
+        实现Object.freeze</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_23-实现object-is" class="sidebar-link">23
+        实现Object.is</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_24-实现一个compose函数" class="sidebar-link">24
+        实现一个compose函数</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_25-settimeout与setinterval实现"
+        class="sidebar-link">25 setTimeout与setInterval实现</a>
+      <ul class="sidebar-sub-headers">
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-settimeout-模拟实现-setinterval"
+            class="sidebar-link">1 setTimeout 模拟实现 setInterval</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-setinterval-模拟实现-settimeout"
+            class="sidebar-link">2 setInterval 模拟实现 setTimeout</a></li>
+      </ul>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_26-实现node的require方法" class="sidebar-link">26
+        实现Node的require方法</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_27-实现lru淘汰算法" class="sidebar-link">27
+        实现LRU淘汰算法</a></li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_28-框架相关" class="sidebar-link">28 框架相关</a>
+      <ul class="sidebar-sub-headers">
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-将虚拟-dom-转化为真实-dom" class="sidebar-link">1
+            将虚拟 Dom 转化为真实 Dom</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-实现事件总线结合vue应用" class="sidebar-link">2
+            实现事件总线结合Vue应用</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_3-实现一个双向绑定" class="sidebar-link">3
+            实现一个双向绑定</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_4-实现一个简易的mvvm" class="sidebar-link">4
+            实现一个简易的MVVM</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_5-实现一个迷你版的vue" class="sidebar-link">5
+            实现一个迷你版的vue</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_6-实现vue-reactive响应式" class="sidebar-link">6
+            实现Vue reactive响应式</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_7-实现模板字符串解析功能" class="sidebar-link">7
+            实现模板字符串解析功能</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_8-实现一下hash路由" class="sidebar-link">8
+            实现一下hash路由</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_9-实现redux中间件" class="sidebar-link">9
+            实现redux中间件</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_10-实现redux-thunk" class="sidebar-link">10
+            实现redux-thunk</a></li>
+      </ul>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_29-数组相关" class="sidebar-link">29 数组相关</a>
+      <ul class="sidebar-sub-headers">
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-实现foreach方法" class="sidebar-link">1
+            实现forEach方法</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-实现filter方法" class="sidebar-link">2
+            实现filter方法</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_3-实现find方法" class="sidebar-link">3
+            实现find方法</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_4-实现findindex方法" class="sidebar-link">4
+            实现findIndex方法</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_5-实现map方法" class="sidebar-link">5
+            实现map方法</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_6-实现reduce方法" class="sidebar-link">6
+            实现reduce方法</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_7-实现every方法" class="sidebar-link">7
+            实现every方法</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_8-实现some方法" class="sidebar-link">8
+            实现some方法</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_9-实现数组扁平化flat方法" class="sidebar-link">9
+            实现数组扁平化flat方法</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_10-实现array-isarray方法"
+            class="sidebar-link">10 实现Array.isArray方法</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_11-实现array-of方法" class="sidebar-link">11
+            实现Array.of方法</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_12-数组去重方法汇总" class="sidebar-link">12
+            数组去重方法汇总</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_13-对象数组如何去重" class="sidebar-link">13
+            对象数组如何去重</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_14-数组中的数据根据key去重" class="sidebar-link">14
+            数组中的数据根据key去重</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_15-类数组转化为数组的方法" class="sidebar-link">15
+            类数组转化为数组的方法</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_16-reduce用法汇总" class="sidebar-link">16
+            reduce用法汇总</a></li>
+      </ul>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_30-正则相关" class="sidebar-link">30 正则相关</a>
+      <ul class="sidebar-sub-headers">
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-实现千位分隔符" class="sidebar-link">1
+            实现千位分隔符</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-判断是否是电话号码" class="sidebar-link">2
+            判断是否是电话号码</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_3-验证是否是邮箱" class="sidebar-link">3
+            验证是否是邮箱</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_4-验证是否是身份证" class="sidebar-link">4
+            验证是否是身份证</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_5-用正则写一个根据name获取cookie中的值的方法"
+            class="sidebar-link">5 用正则写一个根据name获取cookie中的值的方法</a></li>
+      </ul>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_31-函数柯里化相关" class="sidebar-link">31 函数柯里化相关</a>
+      <ul class="sidebar-sub-headers">
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-实现一个js函数柯里化" class="sidebar-link">1
+            实现一个JS函数柯里化</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-请实现一个-add-函数-满足以下功能"
+            class="sidebar-link">2 请实现一个 add 函数，满足以下功能</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_3-实现-5-add-3-minus-2-功能"
+            class="sidebar-link">3 实现 (5).add(3).minus(2) 功能</a></li>
+      </ul>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_32-字符串相关" class="sidebar-link">32 字符串相关</a>
+      <ul class="sidebar-sub-headers">
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-查找字符串中出现最多的字符和个数" class="sidebar-link">1
+            查找字符串中出现最多的字符和个数</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-字符串查找" class="sidebar-link">2 字符串查找</a>
+        </li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_3-字符串最长的不重复子串" class="sidebar-link">3
+            字符串最长的不重复子串</a></li>
+      </ul>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_33-实现工具函数" class="sidebar-link">33 实现工具函数</a>
+      <ul class="sidebar-sub-headers">
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-对象扁平化" class="sidebar-link">1 对象扁平化</a>
+        </li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-实现一个管理本地缓存过期的函数" class="sidebar-link">2
+            实现一个管理本地缓存过期的函数</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_3-实现lodash的chunk方法-数组按指定长度拆分"
+            class="sidebar-link">3 实现lodash的chunk方法--数组按指定长度拆分</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_4-手写深度比较isequal" class="sidebar-link">4
+            手写深度比较isEqual</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_5-实现一个json-stringify"
+            class="sidebar-link">5 实现一个JSON.stringify</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_6-实现一个json-parse" class="sidebar-link">6
+            实现一个JSON.parse</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_7-解析-url-params-为对象" class="sidebar-link">7
+            解析 URL Params 为对象</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_8-转化为驼峰命名" class="sidebar-link">8
+            转化为驼峰命名</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_9-实现一个函数判断数据类型" class="sidebar-link">9
+            实现一个函数判断数据类型</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_10-对象数组列表转成树形结构-处理菜单"
+            class="sidebar-link">10 对象数组列表转成树形结构（处理菜单）</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_11-树形结构转成列表-处理菜单" class="sidebar-link">11
+            树形结构转成列表（处理菜单）</a></li>
+      </ul>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_34-手写常见排序" class="sidebar-link">34 手写常见排序</a>
+      <ul class="sidebar-sub-headers">
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-冒泡排序" class="sidebar-link">1 冒泡排序</a>
+        </li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-快速排序" class="sidebar-link">2 快速排序</a>
+        </li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_3-选择排序" class="sidebar-link">3 选择排序</a>
+        </li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_4-插入排序" class="sidebar-link">4 插入排序</a>
+        </li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_5-二分查找" class="sidebar-link">5 二分查找</a>
+        </li>
+      </ul>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_35-算法数据结构" class="sidebar-link">35 算法数据结构</a>
+      <ul class="sidebar-sub-headers">
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-实现一个链表结构" class="sidebar-link">1
+            实现一个链表结构</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-实现一个队列" class="sidebar-link">2 实现一个队列</a>
+        </li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_3-递归反转链表" class="sidebar-link">3 递归反转链表</a>
+        </li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_4-二叉树搜索" class="sidebar-link">4 二叉树搜索</a>
+        </li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_5-二叉树层次遍历" class="sidebar-link">5
+            二叉树层次遍历</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_6-二叉树深度遍历" class="sidebar-link">6
+            二叉树深度遍历</a></li>
+      </ul>
+    </li>
+    <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_36-综合" class="sidebar-link">36 综合</a>
+      <ul class="sidebar-sub-headers">
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_1-实现一个-sleep-函数-比如-sleep-1000-意味着等待1000毫秒"
+            class="sidebar-link">1 实现一个 sleep 函数，比如 sleep(1000) 意味着等待1000毫秒</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_2-给定两个数组-写一个方法来计算它们的交集"
+            class="sidebar-link">2 给定两个数组，写一个方法来计算它们的交集</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_3-异步并发数限制" class="sidebar-link">3
+            异步并发数限制</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_4-异步串行-异步并行" class="sidebar-link">4 异步串行 |
+            异步并行</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_5-实现有并行限制的-promise-调度器"
+            class="sidebar-link">5 实现有并行限制的 Promise 调度器</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_6-图片懒加载" class="sidebar-link">6 图片懒加载</a>
+        </li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_7-实现-getvalue-setvalue-函数来获取path对应的值"
+            class="sidebar-link">7 实现 getValue/setValue 函数来获取path对应的值</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_8-创建10个标签-点击的时候弹出来对应的序号"
+            class="sidebar-link">8 创建10个标签，点击的时候弹出来对应的序号</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_9-版本号排序的方法" class="sidebar-link">9
+            版本号排序的方法</a></li>
+        <li class="sidebar-sub-header"><a
+            href="/docs/base/handwritten.html#_10-请实现-dom2json-一个函数-可以把一个-dom-节点输出-json-的格式" class="sidebar-link">10 请实现
+            DOM2JSON 一个函数，可以把一个 DOM 节点输出 JSON 的格式</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_11-分片思想解决大数据量渲染问题" class="sidebar-link">11
+            分片思想解决大数据量渲染问题</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_12-实现一个add方法完成两个大数相加"
+            class="sidebar-link">12 实现一个add方法完成两个大数相加</a></li>
+        <li class="sidebar-sub-header"><a
+            href="/docs/base/handwritten.html#_13-怎么在制定数据源里面生成一个长度为-n-的不重复随机数组-能有几种方法-时间复杂度多少-字节"
+            class="sidebar-link">13 怎么在制定数据源里面生成一个长度为 n 的不重复随机数组 能有几种方法 时间复杂度多少（字节）</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_14-查找数组公共前缀-美团" class="sidebar-link">14
+            查找数组公共前缀（美团）</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_15-判断括号字符串是否有效-小米" class="sidebar-link">15
+            判断括号字符串是否有效（小米）</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_16-实现一个padstart-或padend-的polyfil"
+            class="sidebar-link">16 实现一个padStart()或padEnd()的polyfil</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_17-设计一个方法提取对象中所有value大于2的键值对并返回最新的对象"
+            class="sidebar-link">17 设计一个方法提取对象中所有value大于2的键值对并返回最新的对象</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_18-实现一个拖拽" class="sidebar-link">18
+            实现一个拖拽</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_19-基于promise-all实现ajax的串行和并行"
+            class="sidebar-link">19 基于Promise.all实现Ajax的串行和并行</a></li>
+        <li class="sidebar-sub-header"><a href="/docs/base/handwritten.html#_20-修改嵌套层级很深对象的-key" class="sidebar-link">20
+            修改嵌套层级很深对象的 key</a></li>
+      </ul>
+    </li>
+  </ul>
+</body>
+<script type="module">
+  const dom = document.querySelectorAll(".sidebar-sub-headers")
+  const arr = [...dom];
+  const brr = arr.map(item => item.childNodes)
+  // console.log(brr)
+  const res = []
+  brr.forEach(item => {
+    console.log(item, "item");
+    // console.log(item.contains(document.querySelector(".sidebar-sub-headers")));
+    // if (item.contains(document.querySelector(".sidebar-sub-headers"))) {
+    //   res.push({ key1: item.innerText })
+    // }
+  })
+</script>
+<!-- <script type="text/javascript"></script> -->
+
+</html>

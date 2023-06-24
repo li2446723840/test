@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"><!-- 通知 IE 采用其所支持的最新的模式 -->
+  <meta name="keywords" content="关键词(一般不超过3个,每个关键词不宜过长,而且词语间要用英文“,”隔开。尽量将重要的关键字靠前放)" />
+  <meta name="description" content="描述(一般不超过150个字符)" />
+  <title>Document</title>
+</head>
+<style>
+  html {
+    height: 100%;
+  }
+
+  body,
+  dl,
+  dd,
+  ul,
+  li,
+  ol,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  input,
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    height: 100%;
+    min-width: 100vw;
+  }
+
+  .clear:after {
+    content: "";
+    display: block;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+    height: 0;
+  }
+
+  .clear {
+    zoom: 1;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none
+  }
+
+  img {
+    border: 0;
+    vertical-align: top;
+  }
+
+  input {
+    outline: none
+  }
+
+  button {
+    outline: none
+  }
+  /* 自定义滚动条样式 */
+  /* 滚动条整体部分 */
+  .custom-scroll-style ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    display: initial !important;
+    background: transparent;
+  }
+  /* 滚动条的轨道（里面装有Thumb） */
+  .custom-scroll-style ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  /* 滚动条里面的小方块，能向上向下移动（或往左往右移动，取决于是垂直滚动条还是水平滚动条） */
+  .custom-scroll-style ::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 4px;
+  }
+  .custom-scroll-style :hover::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 53%, 0.4);
+  }
+
+  .custom-scroll-style :hover::-webkit-scrollbar-track {
+    background: hsla(0, 0%, 53%, 0.1);
+  }
+
+  .box {
+    display: flex;
+    height: 100%;
+  } 
+
+  .left {
+    padding: 20px;
+    height: 100%;
+    overflow-y: overlay;
+    flex-shrink: 0;
+    width: 200px;
+    box-sizing: border-box;
+    border-right: 1px solid #ccc;
+  }
+
+  .left div {
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .right {
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .header {
+    height: 40px;
+    padding: 20px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  .content {
+    /* height: calc(100% - 40px); */
+    overflow-y: overlay;
+    flex: 1;
+    padding: 20px;
+  }
+</style>
+
+<body>
+  <div class="box custom-scroll-style">
+    <div class="left">
+      导航
+    </div>
+    <div class="right">
+      <div class="header">
+        <button class="quit">退出</button>
+      </div>
+      <div class="content">
+        <input type="text" class="input-name"/>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="./realization/继承.js" type="module"></script>
+<script type="text/javascript">
+  // const dom = document.querySelector(".input-name")
+  // const targetFn = function() {
+  //   console.log(dom.value);
+  // }
+  // dom.oninput = throttle(targetFn, 500)
+  // function throttle(func, wait) {
+  //   let timer;
+  //   return function() {
+  //     if(!timer) {
+  //       timer = setTimeout(() => {
+  //         timer = null;
+  //         func();
+  //       }, wait)
+  //     }
+  //   }
+  // }
+</script>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"><!-- 通知 IE 采用其所支持的最新的模式 -->
+  <meta name="keywords" content="关键词" />
+  <meta name="description" content="描述" />
+  <title>Document</title>
+</head>
+<style>
+  #app {
+    padding: 20px;
+  }
+
+  .common-style {
+    padding: 20px;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+
+  .operate {
+    margin-top: 10px;
+  }
+</style>
+
+<body>
+  <div id="app">
+    <div class="common-style">
+      <input v-model="createValue">
+      <button @click="handleCreate">新建</button>
+    </div>
+    <list-item v-for="(ele,index) in dataList" :key="index" :item="ele" :index="index" class="common-style"
+      @del="delItem"></list-item>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script type="module">
+  const listItem = Vue.component('list-item', {
+    props: ["item", "index"],
+    template: `<div>
+      <input v-if="item.isEdit" v-model="item.value" />
+      <div v-else>{{ item.value }}</div>
+      <div class="operate">
+        <button @click="$emit('del',index)">删除</button>
+        <button v-if="item.isEdit" @click=handleSave(item)>保存</button>
+        <button v-else @click="handleUpdate(item)">修改</button>
+        </div>
+      </div>`,
+    methods: {
+      handleUpdate(target) {
+        target.isEdit = true;
+      },
+      handleSave(target) {
+        target.isEdit = false;
+      }
+    }
+  })
+  var app = new Vue({
+    el: '#app',
+    data: {
+      createValue: "",
+      dataList: []
+    },
+    components: { listItem },
+    methods: {
+      handleCreate() {
+        if (this.createValue) {
+
+          this.dataList.push({
+            isEdit: false,
+            value: this.createValue
+          })
+          this.createValue = ""
+        }
+      },
+      delItem(index) {
+        this.dataList.splice(index, 1)
+      }
+    }
+  })
+
+</script>
+
+</html>

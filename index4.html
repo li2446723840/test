@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"><!-- 通知 IE 采用其所支持的最新的模式 -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <title>Document</title>
+</head>
+<style>
+  .div-box {
+    display: flex;
+  }
+  .div-child {
+    height: 100px;
+  /* flex: 1 1 0; *//* flex-shrink: 0.5; */}
+  .div1 {
+    background: red;
+    /* flex-grow: 1; */
+    /* flex-shrink: 1; */
+    /* flex-basis: auto; */
+  }
+  .div2 {
+    background: green;
+    /* flex-grow: 2; */
+    /* flex-shrink: 1; */
+    /* flex-basis: auto; */
+  }
+  .div3 {
+    background: yellow;
+    /* flex-grow: 3; */
+    /* flex-shrink: 1; */
+    /* flex-basis: auto; */
+  }
+  .div-box :not(.div3) {
+    color: orange;
+  }
+  .div-box :nth-child(2) {
+    color: blue;
+  }
+</style>
+
+<body>
+  <div class="div-box">
+    <div class="div1 div-child">div1</div>
+    <div class="div2 div-child">div2</div>
+    <div class="div3 div-child">div3</div>
+  </div>
+</body>
+<script type="text/javascript">
+
+</script>
+
+</html>
