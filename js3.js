@@ -56,22 +56,36 @@ const brackets = function (origin) {
     };
   }
   const result = [];
-  const map = {
+  let left = 0;
+  let right = 0;
+  const mapLeft = {
     "{": "}",
     "[": "]",
     "(": ")"
   };
-  for (const item of origin.split("")) {
-    if (map[item]) {
+  const mapRight = {
+    "}": "{",
+    "]": "[",
+    ")": "("
+  };
+  for (const item of origin) {
+    if (mapLeft[item]) {
       result.push(item);
-    } else if (map[result.at(-1)] === item) {
+      left++;
+    }
+    if (mapRight[item]) {
+      right++;
+    }
+    if (mapLeft[result.at(-1)] === item) {
       result.pop();
     }
   }
-  return result.length === 0;
+  return left === right && result.length === 0;
 };
 const str = "(11{3)()";
+const str1 = "113))";
 // console.log(brackets(str));
+// console.log(brackets(str1));
 // ---------------------------------call、apply、bind-------------------------------------------
 const obj = {
   a: "aaa"

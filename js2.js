@@ -191,11 +191,76 @@ const newFn = function(fn, args) {
 console.log(newFn(Car, "red"));
 
 // 手写发布订阅模式
+// const eventHub = {
+//   map: {},
+//   on: (name, fn) => {
+//     eventHub.map[name] = eventHub.map[name] || [];
+//     eventHub.map[name].push(fn);
+//   },
+//   emit: (name, data) => {
+//     const q = eventHub.map[name];
+//     if (!q) {
+//       return;
+//     }
+//     q.map((f) => f.call(undefined, data));
+//   },
+//   off: (name, fn) => {
+//     const q = eventHub.map[name];
+//     if (!q) {
+//       return;
+//     }
+//     const index = q.indexOf(fn);
+//     if (index < 0) {
+//       return;
+//     }
+//     q.splice(index, 1);
+//   },
+// };
+
+// eventHub.on("click", console.log);
+// eventHub.on("click", console.error);
+// console.log(eventHub.map, 111);
+
+// setTimeout(() => {
+//   eventHub.emit("click", "dipper");
+// }, 3000);
+
+// eventHub.off("click", console.error);
+// console.log(eventHub.map, 222);
 // 手写diff算法
 // 手写Promise
 // 手写Promise.all
 // 手写Promise.race
 // 函数柯里化
+// function fn(a, b, c) {
+//   return a + b + c;
+// }
+// function currying(fn) {
+//   return function c(...args) {
+//     if (args.length === fn.length) {
+//       return fn(...args)
+//     } else {
+//       return (...params) => c(...args, ...params)
+//     }
+//   }
+//   // 箭头函数写法
+//   // const c = (...args) => (args.length === fn.length) ? fn(...args) : (...params) => c(...args, ...params)
+//   // return c;
+// }
+// // 闭包写法
+// function currying(fn) {
+//   let params = []
+//   return function c(...args) {
+//     params = [...params, ...args]
+//     if (params.length === fn.length) {
+//       return fn(...params)
+//     } else {
+//       return c
+//     }
+//   }
+// }
+// console.log(currying(fn)(1,2,3));
+// console.log(currying(fn)(1)(2)(3));
 // 数组扁平化
 const arr = [[[[[[[1], 2], 3], 4], 5], 6], 7]
 Array.prototype.MyFlat = function (tier = 1) {
